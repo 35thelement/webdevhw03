@@ -1,10 +1,18 @@
 defmodule Practice.Palindrome do
   def palindrome?(text) do
     text
-    |> String.replace(" ", "")
+    # Remove all non-letter characters.
+    |> String.replace(~r/[^a-zA-Z]/, "")
+    # Convert to lower case.
+    |> String.downcase()
+    # Reverse the string.
     |> String.reverse()
+    # Return whether or not the reversed and formatted string is equal to:
     ==
     text
-    |> String.replace(" ", "")
+    # Remove all non-letter characters.
+    |> String.replace(~r/[^a-zA-Z]/, "")
+    # Convert to lower case.
+    |> String.downcase
   end
 end
