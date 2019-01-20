@@ -4,8 +4,18 @@ defmodule Practice.Factor do
     factor(x, 2, [])
   end
 
-  # If we're factoring 1, we're done, so return the array.
-  def factor(1, _num, arr) do
+  # If we're factoring a negative number,
+  def factor(x, num, arr) when x < 0 do
+    x
+    # get the absolute value of x,
+    |> abs
+    # Then factor the absolute value of x with num and a -1 in the array.
+    |> factor(num, List.insert_at(arr, -1, -1))
+  end
+
+  # If we're factoring 1 or 0,
+  def factor(x, _num, arr) when x <= 1 do
+    # We're done, so return the array.
     arr
   end
 
