@@ -22,7 +22,7 @@ defmodule Practice.Factor do
   # Factor x with the candidate number num and the accumulator array arr.
   def factor(x, num, arr) do
     # If there is no remainder of x/num,
-    if Integer.mod(x, num) == 0 do
+    if rem(x, num) == 0 do
       # Recursively perform factor function with:
       x
       # x = x/num
