@@ -26,7 +26,7 @@ defmodule Practice.Factor do
       # Recursively perform factor function with:
       x
       # x = x/num
-      |> Integer.floor_div(num)
+      |> div(num)
       # arr has num pushed to the end, and num = 2.
       |> factor(2, List.insert_at(arr, -1, num))
       # Otherwise,
