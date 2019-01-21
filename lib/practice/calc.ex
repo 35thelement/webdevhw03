@@ -13,6 +13,8 @@ defmodule Practice.Calc do
       |> Code.eval_string
       # and return the first element of the tuple.
       |> elem(0)
+    else
+      "Error: Non-Equational Input!"
     end
   end
 end
