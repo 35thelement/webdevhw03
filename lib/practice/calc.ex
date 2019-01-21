@@ -1,24 +1,18 @@
 defmodule Practice.Calc do
-  def parse_float(text) do
-    {num, _} = Float.parse(text)
-    num
-  end
 
   def calc(expr) do
-    # This should handle +,-,*,/ with order of operations,
-    # but doesn't need to handle parens.
-    expr
-    |> String.split(~r/\s+/)
-    |> hd
-    |> parse_float
-    |> :math.sqrt()
-
-    # Hint:
-    # expr
-    # |> split
-    # |> tag_tokens  (e.g. [+, 1] => [{:op, "+"}, {:num, 1.0}]
-    # |> convert to postfix
-    # |> reverse to prefix
-    # |> evaluate as a stack calculator using pattern matching
+    # If the string is formatted like this:
+    # Start of string:
+    # (optionally: -)(numbers)(optionally: .(numbers))(one of +,-,*,/)
+    # {Repeat the previous any number of times}
+    # String does not end with (one of +,-,*,/)
+    # End of string
+    if String.match?(expr, ~r/^(-?\d+(\.\d+)?[-+\/*]?)*(?<![+-\/*])$/) do
+      expr
+      # Evaluate the string mathematically,
+      |> Code.eval_string
+      # and return the first element of the tuple.
+      |> elem(0)
+    end
   end
 end
