@@ -28,7 +28,7 @@ defmodule Practice.PracticeTest do
   end
 
   test "look at some palindromes" do
-    assert palindrome?("racecar")
+    assert palindrome?("A man, a plan, a canal. Panama!")
     assert !palindrome?("fish")
   end
 end
