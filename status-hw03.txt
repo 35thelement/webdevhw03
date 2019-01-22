@@ -20,7 +20,7 @@ the factor method works, and the previously set up double method works.
 
 5. Did you successfully deploy? If not, what's broken?
 
-
+I deployed successfully.
 
 6. How comfortable do you feel with Elixir now?
 
