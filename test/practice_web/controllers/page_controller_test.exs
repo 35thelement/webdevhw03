@@ -23,6 +23,6 @@ defmodule PracticeWeb.PageControllerTest do
 
   test "palindrome racecar" do
     conn = post conn, "/palindrome", %{"text" => "racecar"}
-    assert html_response(conn, 200) =~ TRUE
+    assert html_response(conn, 200) =~ "true"
   end
 end
