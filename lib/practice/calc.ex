@@ -1,13 +1,16 @@
 defmodule Practice.Calc do
 
   def calc(expr) do
-    # If the string is formatted like this:
+    if String.match?(
+    # Remove all whitespaces from the string.
+    String.replace(expr, ~r/\s/, ""),
+    # If the whitespace-free string is formatted like this:
     # Start of string:
     # (optionally: -)(numbers)(optionally: .(numbers))(one of +,-,*,/)
     # {Repeat the previous any number of times}
     # String does not end with (one of +,-,*,/)
     # End of string
-    if String.match?(expr, ~r/^(-?\d+(\.\d+)?[-+\/*]?)*(?<![+-\/*])$/) do
+    ~r/^(-?\d+(\.\d+)?[-+\/*]?)*(?<![+-\/*])$/) do
       expr
       # Evaluate the string mathematically,
       |> Code.eval_string
