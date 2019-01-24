@@ -13,6 +13,6 @@ defmodule Practice.Palindrome do
     # Remove all non-letter characters.
     |> String.replace(~r/[^a-zA-Z]/, "")
     # Convert to lower case.
-    |> String.downcase
+    |> String.downcase()
   end
 end
